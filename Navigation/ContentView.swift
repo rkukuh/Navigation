@@ -12,7 +12,15 @@ struct ContentView: View {
         NavigationStack {
             Text("SwiftUI")
                 .navigationTitle("Welcome")
-                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    Button("About") {
+                        print("About tapped!")
+                    }
+                    
+                    Button("Help") {
+                        print("Help tapped!")
+                    }
+                }
         }
     }
 }

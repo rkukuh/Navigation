@@ -22,6 +22,16 @@ struct ContentView: View {
                             print("Help tapped!")
                         }
                     }
+                    
+                    ToolbarItemGroup(placement: .secondaryAction) {
+                        Button("Settings") {
+                            print("Settings tapped")
+                        }
+                        
+                        Button("Email Me") {
+                            print("Email tapped")
+                        }
+                    }
                 }
         }
     }

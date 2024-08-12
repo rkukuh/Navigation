@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var pathStore = PathStore()
+    
     var body: some View {
-        NavigationStack {
-            Text("SwiftUI")
-                .navigationTitle("Welcome")
-                .navigationBarTitleDisplayMode(.inline)
+        NavigationStack(path: $pathStore.path) {
+            DetailView(id: 1)
+                .navigationDestination(for: Int.self, destination: DetailView.init)
+                .navigationTitle("Navigation")
         }
     }
 }

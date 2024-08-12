@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    let players = [
+        "Roy Kent",
+        "Richard Montlaur",
+        "Dani Rojas",
+        "Jamie Tartt",
+    ]
+    
     var body: some View {
         NavigationStack {
-            Text("SwiftUI")
-                .navigationTitle("Welcome")
-                .navigationBarTitleDisplayMode(.inline)
+            List(players, id: \.self) { player in
+                NavigationLink(player, value: player)
+            }
+            .navigationTitle("Select a player")
+            .navigationDestination(for: String.self, destination: PlayerView.init)
         }
     }
 }

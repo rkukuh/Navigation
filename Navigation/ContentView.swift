@@ -18,10 +18,13 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(players, id: \.self) { player in
-                NavigationLink(player, value: player)
+                NavigationLink {
+                    PlayerView(name: player)
+                } label: {
+                    Text(player)
+                }
             }
             .navigationTitle("Select a player")
-            .navigationDestination(for: String.self, destination: PlayerView.init)
         }
     }
 }

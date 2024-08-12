@@ -11,8 +11,10 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                NavigationLink("Show Detail View") {
+                NavigationLink {
                     DetailView()
+                } label: {
+                    Label("Show Detail View", systemImage: "globe")
                 }
             }
             .navigationTitle("Navigation")

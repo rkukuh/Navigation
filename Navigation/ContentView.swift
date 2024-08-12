@@ -13,12 +13,10 @@ struct ContentView: View {
             Text("SwiftUI")
                 .navigationTitle("Welcome")
                 .toolbar {
-                    Button("About") {
-                        print("About tapped!")
-                    }
-                    
-                    Button("Help") {
-                        print("Help tapped!")
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("About") {
+                            print("About tapped!")
+                        }
                     }
                 }
         }

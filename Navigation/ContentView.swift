@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var presentedNumbers = [1, 4, 8]
+    @State private var presentedNumbers = [Int]()
     
     var body: some View {
         NavigationStack(path: $presentedNumbers) {
@@ -18,7 +18,13 @@ struct ContentView: View {
                 }
             }
             .navigationDestination(for: Int.self) { i in
-                Text("Detail \(i)")
+                VStack {
+                    Text("Detail \(i)")
+                    
+                    Button("Go to Next") {
+                        presentedNumbers.append(i + 1)
+                    }
+                }
             }
             .navigationTitle("Navigation")
         }

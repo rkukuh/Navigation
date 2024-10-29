@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isShowingInspector = false
+    
     var body: some View {
-        NavigationStack {
-            Text("SwiftUI")
-                .navigationTitle("Welcome")
-                .navigationBarTitleDisplayMode(.inline)
+        Button("Hello, SwiftUI") {
+            isShowingInspector.toggle()
+        }
+        .font(.largeTitle)
+        .inspector(isPresented: $isShowingInspector) {
+            Text("Inspector View")
         }
     }
 }

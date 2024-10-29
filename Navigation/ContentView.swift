@@ -16,7 +16,7 @@ struct ContentView: View {
         } detail: {
             Text("Detail")
         }
-        .navigationSplitViewStyle(.prominentDetail)
+        .navigationSplitViewStyle(.balanced)
     }
 }
 

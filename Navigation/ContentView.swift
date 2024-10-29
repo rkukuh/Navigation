@@ -9,10 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationStack {
-            Text("SwiftUI")
-                .navigationTitle("Welcome")
-                .navigationBarTitleDisplayMode(.inline)
+        NavigationSplitView {
+            Text("Sidebar")
+                .navigationSplitViewColumnWidth(100)
+        } content: {
+           Text("Content")
+                .navigationSplitViewColumnWidth(200)
+        } detail: {
+            Text("Detail")
         }
     }
 }

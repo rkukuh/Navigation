@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var columnVisibility = NavigationSplitViewVisibility.detailOnly
+    
     var body: some View {
-        NavigationStack {
-            Text("SwiftUI")
-                .navigationTitle("Welcome")
-                .navigationBarTitleDisplayMode(.inline)
+        NavigationSplitView(columnVisibility: $columnVisibility) {
+            Text("Sidebar")
+        } content: {
+            Text("Content")
+        } detail: {
+            VStack {
+                Button("Detail Only") {
+                    columnVisibility = .detailOnly
+                }
+                
+                Button("Content and Detail") {
+                    columnVisibility = .doubleColumn
+                }
+                
+                Button("Show All") {
+                    columnVisibility = .all
+                }
+            }
         }
     }
 }
